@@ -1,0 +1,317 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block welcomenav %} {{viewer.Name}} {% endblock %}
+{% block contentblock %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+
+<div class="jumbotron container" style="background-color:#CF91FF;align-items: center; margin-top: 10px">
+
+<h1 style="text-align: center;font-family: 'Font Awesome\ 5 Free'; color:blue"> <b><i>{{name}} </h1></i></b>
+<hr>
+
+<hr>
+
+<h1 style="text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>Projects Registration</h1></i></b>
+
+<hr><hr>
+
+<form class="form-group" method="POST" action="{% url 'project_registration' %}">
+  <h1 style="color:red"> Database Project: (deadline: 30/5/2021) </h1><hr>
+  {% csrf_token %}
+  <h3 >Project Aim and Description:</h3>
+  The aim of this project is to specify, design, implement, populate and query a limited-scope
+relational database.
+This constitutes a very important practical exercise to better understand all what you have taken
+during the “introduction to database” course.
+The objective of this project is to understand the main phases of the development of a
+relational database, and to produce the deliverable(s) of each phase: a requirement analysis
+document, Entity-relationship Diagram, Relational Schema creation SQL script, Data
+population SQL script and Main queries SQL script.
+The project can be done individually or in teams of two students maximum. The size and scope of
+the project depends on the number of students.
+<br><br><br>
+
+<h3>Project steps:</h3>
+ <b>1)</b> You need first to form your team (if needed) and then to select one of the projects in the project
+list at the end of this file. You should make three choices in order to solve any conflict in
+students choices. You are also free to choose a project from outside the list.<br>
+<b>2)</b>  Once assigned a project, the first and very important step is to do the needed re/search about the
+topic/application you are intended to develop. This will help you to define the main
+requirements for your project; in other words to play the customer role and present the
+information storage problem which includes mainly what “the customer” is planning to store in
+the database, the business rules/ constraints to respect as well as the main reports (queries) he is
+expecting to have.<br>
+<b>3)</b>  The next step is to draw the Entity-Relationship diagram for the database which will be then
+translated into a relational schema to be implemented in SQL in a database creation script.<br>
+<b>4)</b>  The database should be then populated with the minimum necessary data (in a SQL script) that
+will help to validate the SQL queries you will write and which will help providing the reports
+required by the customer in the first phase.
+<br><br><br>
+
+<h3>Project Scope and Complexity:</h3>
+
+The scope and thus the size as well as the complexity of the project is very important and will play
+an important role in the assessment and thus the grading of the project especially for team projects.
+On the other hand, it is very important to have a “reasonable” complexity level in order to be capable
+to finish the project on time (before the end of May 2021). Thus a main challenge is to define a
+reasonable scope for the project; thus in some project topics, student should only consider certain
+modules to be analyzed and then implemented.
+Due to the importance of the aspect of the project, you should get the approval of your tutor
+regarding the scope before proceeding; thus you should prepare a one to two pages concerning
+the requirement specifications that clearly demonstrates that your project is “acceptable" and
+“tangible" at the same time
+
+
+<br><br><br>
+<h3>Project Deliverable(s):</h3>
+• At the end of the project, you are expected to provide a brief report that explains the
+different phases of the project along with the three SQL script parts (can be merged in one
+SQL file) sufficiently commented. <br>
+• You are also expected to do an oral presentation (Slides and demo) in order to
+demonstrate your understanding of the project (the date is to be determined later).
+
+<br><br><br>
+
+
+<h3>Project List:</h3>
+<ol>
+1 - Archive Management System <br>
+2 - Beauty Salon Management System<br>
+3 - Bookstore Management System<br>
+4 - Building Management System<br>
+5 - Bus Scheduling System<br>
+6 - Cafe Management System<br>
+7 - Car Rental System<br>
+8 - Cellphone Store Management System<br>
+9 - Clinic Management System<br>
+10 - Computer Store and Maintenance Management System<br>
+11 - Flight Booking Management System<br>
+12 - Food Order Management System<br>
+13 - Funeral Service System<br>
+14 - Game Lounge Management System<br>
+15 - Gym Management System<br>
+16 - Home Budget Management System<br>
+17 - Hospital Management System<br>
+18 - Hotel Management System<br>
+19 - Hotel Reservation System<br>
+20 - Human Resource Management System<br>
+21 - Inventory Management System<br>
+22 - Library Management System<br>
+23 - Minimarket Management System<br>
+24 - Motor Parts Management System<br>
+25 - Movie Ticketing System<br>
+26 - Nursery Management System<br>
+27 - Pastry Management System<br>
+28 - Payroll Management System<br>
+29 - Pet shop Management System<br>
+30 - Pizza Store System<br>
+31 - Prison Management System<br>
+32 - Resort Management System<br>
+33 - Restaurant Management System<br>
+34 - School Management System<br>
+35 - Shoe Store Management System<br>
+36 - University Student Information Syste<br>
+</ol>
+<br><br><br>
+<label for="databasetopic1">First Topic:</label>
+    <input required id="databasetopic1" value="{{viewer.data1}}" name="databasetopic1" class="form-control" type="number" placeholder="Enter the topic's number">
+<br><br>
+   <label for="databasetopic2">Second Topic:</label>
+    <input required id="databasetopic2" value="{{viewer.data2}}" name="databasetopic2" class="form-control" type="number" placeholder="Enter the topic's number">
+<br><br>
+    <label for="databasetopic3">Third Topic:</label>
+    <input id=required "databasetopic3" value="{{viewer.data3}}" name="databasetopic3" class="form-control" type="number" placeholder="Enter the topic's number">
+<br><br>
+   <label for="databasetopic4">If you want to work on a topic not mentioned in the project list, enter it below:</label>
+    <input id="databasetopic4" name="databasetopic4" class="form-control" type="text" value="{{viewer.data4}}">
+
+<br><br>
+ <label for="databasegroup">Select your teammate (select your name if you want to work alone):</label>
+    	<select value="" required class="ui search dropdown fluid" id="databasegroup" name="databasegroup">
+			<option value="intro" selected disabled hidden>Search by typing the name</option>
+					{% for student in students %}
+ 						{% if student.Name != viewer.datamate %}
+ 					 <option  value="{{student.Name}}">{{student.Name}}</option>
+ 					 {% else %}
+ 					 <option value="{{student.Name}}" selected>{{student.Name}}</option>
+                        {% endif %}
+
+ 					 {% endfor %}
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+
+  					<hr><hr> <h1 style="color:red"> Biomedical Project: (deadline: 21/5/2021)</h1><hr>
+  		<h3> Report details:</h3>
+
+
+Introduction: why did u choose this topic? <br>
+
+General theory:<br>
+
+<ul> <li>basic principles and equations </li> <li>Evolution of this device(history + updates)</li></ul>
+
+
+<br>
+
+Conclusion: question ouverte - open horizons<br><br>
+
+Attention :
+Avoid plagarism
+<br>
+For more details, listen to the last part of the recording lecture 6
+
+<br>
+Presentation:
+max 10 min.s with questions<br>
+Reflect the same outlines in report
+
+<br><br><br>
+<h3> Topics List:</h3>
+<ol>
+    <li> Clinical Laboratory Instrumentation: <br>
+        <ul>
+            <li>Spectrophotometry</li>
+            <li> Automated Chemical Analyzers</li>
+            <li>Chromatology</li>
+            <li>Electrophoresis</li>
+        </ul>
+    </li>
+<br><br>
+    <li> Medical Imaging Systens: <br>
+        <ul>
+            <li>Radiography</li>
+            <li> Computed Radiography</li>
+            <li>Computed Tomography</li>
+            <li>Magnetic Resonance Imaging</li>
+            <li>Nuclear Medicine</li>
+            <li>Single-photon Emission Computed Tomography</li>
+            <li>Positron Emission Tomography</li>
+            <li>Ultrasonography</li>
+        </ul>
+    </li>
+
+    <br><br>
+    <li> Therapeutic and Prosthetic Devices: <br>
+        <ul>
+            <li>Cardiac Pacemakers and Other Electric Stimulators</li>
+            <li>Defibrillators and Cardioverters</li>
+            <li>Mechanical Cardiovascular Orthotic and Prosthetic Devices</li>
+            <li>Hemodialysis</li>
+            <li>Lithotripsy</li>
+            <li>Ventilators</li>
+            <li>Infant Incubators</li>
+            <li>Drug Delivery Devices</li>
+            <li> Surgical Instruments</li>
+            <li>Therapeutic Applicatioins of the Laser</li>
+        </ul>
+    </li>
+    <br><br>
+    <li>Electrical Safety</li>
+
+</ol>
+
+<br><br>
+   <label for="biomedicaltopic">Chosen Topic (You can choose any topic from the propose list above, or choose any other topic and then wait for professor's approval):</label>
+    <input required id="biomedicaltopic" name="biomedicaltopic" value="{{viewer.bio1}}" class="form-control" type="tetx" placeholder="Enter the topic's name">
+
+    <br><br>
+ <label for="biomedicalgroup">Select your teammate (select your name if you want to work alone):</label>
+    	<select required class="ui search dropdown fluid" id="biomedicalgroup" name="biomedicalgroup">
+			<option value="intro" selected disabled hidden>Search by typing the name</option>
+					{% for student in students %}
+ 						{% if student.Name != viewer.biomate %}
+ 					 <option  value="{{student.Name}}">{{student.Name}}</option>
+ 					 {% else %}
+ 					 <option value="{{student.Name}}" selected>{{student.Name}}</option>
+                        {% endif %}
+
+ 					 {% endfor %}
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+
+	<hr><hr> <h1 style="color:red"> Optoelectronics Project: (deadline: 25/5/2021)</h1><hr>
+
+          	<br><br>
+          	<h3> Project details </h3>
+          		The project consists of studying and simulating the modale propagation in a multimode fiber optic with comparison between steo index and graded index fibers. It involves the following tasks:<br>
+          		<ol>
+          		    <li>Simulate the number of guided modes versus normalized frequency V or wavelength</li>
+          		    <li>Simulate the power in core of the first two modes versus V and lambda</li>
+                    <li>Simulate the power coupled into guided nides versus V and lambda </li>
+                    <li> The three simulations shall be done for two types oof fiber, step index and graded index</li>
+                    <li> Provide simulation results with comparison and discussions</li>
+          	    </ol>
+          		<br><br>
+          		<h3> Given Values: </h3>
+          		To perform simulation, you will be given the following parameters:<br>
+          		<ol>
+          		    <li>Core refractve index</li>
+          		    <li>Cladding refractive index</li>
+                    <li> Fiber core radius </li>
+                    <li> The waist radius of incident Gaussian laser beam</li>
+          		</ol>
+          		<br><br>
+          		<h3> Output: </h3>
+          		The simulation results shall include the following:
+          		<br>
+          		<ol>
+          		    <li>Table and graph of the variation of M vs V or lambda</li>
+          		    <li>Table and graph of the variation of the Power in core of the first two modes vs V or lambda</li>
+          		    <li>Table and graph of the variation of the power coupled into guided modes vs V or lambda</li>
+          		<br>
+          		These results shall be provided for the two types of fiber.<br>
+          		RP fiber calculator will be used for simulation.<br>
+          		</ol>
+          		<br><br>
+          		<h3> Report:</h3>
+          		The project report shall include the following part:
+          		<br>
+          		<ol>
+          		    <li>Small briefing on theory of guided modes in Fiber Optic</li>
+          		    <li>Simulation screen shots</li>
+          		    <li>Simulation results with tables and graphs</li>
+          		    <li>Comparison and discussion</li>
+          		    <li>Conclusion</li>
+          		    <br>
+          		    The total number of pages must not exceed 20 pages.
+          		</ol>
+
+          		<br> <br>
+          		<h3>Notes:</h3>
+          		<ol>
+          		    <li> The reports shall be sent by email</li>
+          		    <li> PPT presentation shall be prepared to present the report</li>
+          		    <li>Each group will have 10 minutes to present the project and 10 minutes for questions and answers (20 minutes in total).</li>
+          		    <li>A presentation schedule for all groups will be provided after submitting the reports</li>
+          		    <li>The project grade will be calculated as follows:<br>
+          		    <ul>
+          		        <li>40% Report</li>
+          		        <li>30% Presentation</li>
+          		        <li>30% Questions and Answers</li>
+          		    </ul>
+          		    </li>
+          		    <li>Group members shall not exceed 3 students per team</li>
+          		</ol>
+
+          		<br><br>
+          		<h2 style="color:blue"> For additional details, watch the recorded lecture 6</h2>
+          		<br><br>
+          		<h2> You were already divided into groups, if you have any questions contact the admin</h2>
+
+<br><br>
+<input type="submit" class="form-control btn btn-success" value="Submit">
+</form>
+</div>
+{% endblock %}

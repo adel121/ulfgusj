@@ -1,0 +1,327 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block welcomenav %} {{viewer.Name}} {% endblock %}
+
+{% block contentblock %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" />
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.css"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.9/semantic.min.js"></script>
+
+<div class="jumbotron container" style="background-color:#CF91FF;align-items: center; margin-top: 10px">
+
+<h1 style="text-align: center;font-family: 'Font Awesome\ 5 Free'; color:blue"> <b><i>{{name}} </h1></i></b>
+<hr>
+
+<hr>
+
+<h1 style="text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>Final Exam Schedule</h1></i></b>
+
+<h2>Current Choice:</h2>
+
+{{current | safe}}
+<hr><hr><!--
+<h1 style="color:red">Final Schedule</h1>
+ <h2 style="color:blue">Schedule</h2>
+
+    <ul>Day-1<li>Microprocessor</li><li>Data Analysis</li><li>Automatique II</li><hr>Day-2<li>Operating Systems</li><li>Passive Filter Synthesis</li><hr>Day-3<li>Electric Machines</li><li>Instrumentation</li><li>Telecom I</li><hr>Day-4<li>Economics</li><li>Communication and mini project</li><hr></ul>
+
+<hr>!-->
+<h2>Fill the form below to update your choice</h2>
+<form class="form-group" method="POST" action="{% url 'vote' %}">
+
+<h1>Day 1 (6/7/2021):</h1>
+<label for="f1">Select The first Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f1" name="f1">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+
+
+					<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+
+<label for="f2">Select The Second Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f2" name="f2">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+					<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+{% csrf_token %}
+<label for="f3">Select The Third Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f3" name="f3">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+			<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+<hr><hr>
+
+
+<form class="form-group" method="POST" action="{% url 'vote' %}">
+
+<h1>Day 2 (9/7/2021):</h1>
+<label for="f4">Select The first Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f4" name="f4">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+					<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+
+<label for="f5">Select The Second Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f5" name="f5">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+					<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+{% csrf_token %}
+<label for="f6">Select The Third Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f6" name="f6">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+	<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III </option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+<hr><hr>
+
+
+<form class="form-group" method="POST" action="{% url 'vote' %}">
+
+<h1>Day 3 (13/7/2021):</h1>
+<label for="f7">Select The first Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f7" name="f7">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+					<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+
+<label for="f8">Select The Second Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f8" name="f8">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+		<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+{% csrf_token %}
+<label for="f9">Select The Third Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f9" name="f9">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+		<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+<hr><hr>
+
+
+<form class="form-group" method="POST" action="{% url 'vote' %}">
+
+<h1>Day 4 - Independence Day - (16/7/2021):</h1>
+<label for="f10">Select The first Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f10" name="f10">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+	<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+
+<label for="f11">Select The Second Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f11" name="f11">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+	<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+{% csrf_token %}
+<label for="f12">Select The Third Exam</label>
+    	<select value="" required class="ui search dropdown fluid" id="f12" name="f12">
+			<option value="intro" selected disabled hidden>Search by typing the Subject Name</option>
+	<option value="-1" selected>Empty</option>
+					<option value="1">Microprocessor II</option>
+					<option value="2">DataBase</option>
+					<option value="3">Telecom II</option>
+					<option value="4">Biomedical</option>
+					<option value="5">Digital Processing</option>
+					<option value="6">Automatique III</option>
+					<option value="7">Optoelectronics</option>
+					<option value="8">Operational Research</option>
+					<option value="9">Human Rights</option>
+	                <option value="10">EDP</option>
+
+					</select>
+					<script type="text/javascript">
+					jQuery('.ui.search.dropdown')
+  					.dropdown();
+  					</script><br><br>
+<hr><hr>
+<input type="submit" class="btn btn-primary" value="submit">
+</form>
+
+<script>
+
+    function func() {
+        alert("Too late, the form is closed :-/ ");
+    }
+</script>
+<hr><hr>
+
+{% for schedule in schedules %}
+    <h2 style="color:blue">Schedule - {{schedule.0}}</h2>
+    <h3># of votes: {{schedule.1}}</h3>
+    {{schedule.2 | safe}}
+
+{%  endfor %}
+</div>
+{% endblock %}

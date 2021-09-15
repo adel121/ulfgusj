@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block welcomenav %} {{viewer.Name}} {% endblock %}
+{% block contentblock %}
+<div class="jumbotron " style="background-color:#CF91FF;align-items: center; margin-top: 10px">
+
+<h1 style="text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>{{name}} </h1></i></b>
+<hr>
+<h3 style="text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>{{about | safe}} </h3></i></b>
+</div>
+{% endblock %}

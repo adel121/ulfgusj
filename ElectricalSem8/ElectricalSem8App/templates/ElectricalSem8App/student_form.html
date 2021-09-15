@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block contentblock %}
+<div style="margin-top: 10px">
+<div style="align-content: center" class="jumbotron container">
+<form method="POST" enctype="multipart/form-data">
+    	<h1 style="text-align: center">All Fields Are Required</h1>
+    <!-- Security token -->
+    {% csrf_token %}
+
+    <!-- Using the formset -->
+    {{ form.as_p }}
+
+    <input type="submit" value="Submit">
+</form>
+</div></div>
+
+
+<script>
+	$("#id_Id").addClass("form-control");
+	$("#id_Name").addClass("form-control");
+	$("#id_Gmail").addClass("form-control");
+	$("#id_Email").addClass("form-control");
+	$("#id_Email").attr("placeholder", "This should be the email ending with @st.ul.edu.lb");
+	//$("#id_Done").addClass("form-control");
+	$("#id_Discipline").addClass("form-control");
+
+</script>
+{% endblock %}

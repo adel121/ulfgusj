@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load customtags %}
+{% block welcomenav %} {{viewer.Name}} {% endblock %}
+{% block contentblock %}
+
+
+<h1 style="text-align: center;font-family: 'Font Awesome\ 5 Free';color:blue"> <b><i>{{name}} - Lectures </h1></i></b>
+<div  style="  height:100%; align:center;">
+
+{% for video in videos %}
+{{ video|fixVideo }}
+<fieldset class="scheduler-border">
+<legend class="scheduler-border"> Lecture {{video.Lecture_Number}}</legend>
+    <a target="_blank" href="{{video.Drive}}">Click to download Video</a>
+    <h3> Date: {{video.Date}}</h3>
+<iframe width="100%" height="500"
+src="{{video.Youtube}}"  allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen"
+        msallowfullscreen="msallowfullscreen"
+        oallowfullscreen="oallowfullscreen"
+        webkitallowfullscreen="webkitallowfullscreen">
+</iframe></fieldset>
+<br><br>
+
+
+{% endfor %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block welcomenav %} {{viewer.Name}} {% endblock %}
+{% block contentblock %}
+
+ <div class="jumbotron container" style="background-color:#CF91FF;align-items: center; margin-top: 10px">
+
+     <form method="post" action="{% url 'add_group' %}">
+         {% csrf_token %}
+    <h3 style="color:red">Mini Project Group Registration
+    </h3>
+  <div class="form-group">
+    <label for="names">partner's name <h1><u> not YOUR name</u></h1></label>
+    <input type="text" class="form-control" id="names" name="names" placeholder="enter your partner's name or leave empty if you are working alone">
+  </div>
+  <div class="form-group">
+    <label for="weekselect">What is the earliest date you can present your project?</label>
+    <select class="form-control" name="weekselect" id="weekselect">
+      <option value="16/7/2021">16/7/2021</option>
+      <option value="17/7/2021">17/7/2021</option>
+      <option value="18/7/2021">18/7/2021</option>
+      <option value="19/7/2021">19/7/2021</option>
+      <option value="20/7/2021">20/7/2021</option>
+    </select>
+  </div>
+ <div class="form-group">
+    <label for="methodselect">Choose your prefered presentation method</label>
+    <select class="form-control" name="methodselect" id="methodselect">
+      <option value="Uni">In the University</option>
+      <option value="Online">Online</option>
+    </select>
+  </div>
+<div class="form-group">
+    <label for="names">Additional notes</label>
+    <input type="text" class="form-control" name="description">
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Submit">
+ </div>
+{% endblock %}

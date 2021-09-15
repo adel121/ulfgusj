@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load customtags %}
+{% block welcomenav %} {{viewer.Name}} {% endblock %}
+{% block contentblock %}
+
+<h1 style="text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>{{name}} - Documents </h1></i></b>
+<h3>Files are displayed with the first file being the oldest one uploaded</h3>
+<div  style=" overflow-y:scroll; height:100%; align:center;">
+
+<table class="table table-sm table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Download Link</th>
+      <th scope="col">File Format</th>
+      <th scope="col">Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+
+{% for key, value in data.items %}
+{{ value|fixDoc }}
+    <tr>
+      <th scope="row">{{key}}</th>
+      <td>{{value.Name}}</td>
+      <td><a href="{{value.Drive}}">Click To Download File</a></td>
+      <td> {{value.Format}}</td>
+      <td> {{value.Notes}} </td>
+    </tr>
+{% endfor %}
+
+
+  </tbody>
+
+</table>
+
+
+
+</div>
+{% endblock %}

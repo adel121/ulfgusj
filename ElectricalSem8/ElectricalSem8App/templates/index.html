@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block welcomenav %} {{viewer.Name}} {% endblock %}
+
+{% block contentblock %}
+<h1 style="text-align: center"> Welcome <p style="font-family:courier,arial,helvetica;"><b><i>{{viewer.Name}}</i></b></p></h1><hr>
+<style>
+    .tcontainer {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .ticker-wrap {
+        width: 100%;
+        padding-left: 100%;
+        background-color: #eee;
+    }
+
+    @keyframes ticker {
+        100% {
+            transform: translate3d(-100%, 0, 0);
+        }
+    }
+
+    .ticker-move {
+        display: inline-block;
+        white-space: nowrap;
+        padding-right: 100%;
+        animation-timing-function: linear;
+        animation: ticker 20s linear infinite;
+    }
+
+    .ticker-move:hover {
+        animation-play-state: paused;
+    }
+
+    .ticker-item {
+        display: inline-block;
+        padding: 0 40px;
+        font-size: 20px;
+    }</style>
+
+<div class="jumbotron" style="margin: auto; width: 95%;background-color:#CF91FF;align-items: center; margin-top: 30px; margin-bottom: 30px;">
+<div style="text-align:center;align-items:left"> <h3 style="font-family: 'Font Awesome\ 5 Free'"> <i>Total Number of Visits: {{visit_count}}</i></h3>
+  
+  </div>
+
+
+
+
+
+<div>                   <table align="center">
+              <tr><td style="text-align: center;"><canvas id="canvas_tt60399b4886dca" width="175" height="175"></canvas></td></tr>
+              <tr><td style="text-align: center; font-weight: bold"><a href="//24timezones.com/Beirut/time" style="text-decoration: none" class="clock24" id="tz24-1614388040-c134-eyJzaXplIjoiMTc1IiwiYmdjb2xvciI6IjAwOTlGRiIsImxhbmciOiJlbiIsInR5cGUiOiJhIiwiY2FudmFzX2lkIjoiY2FudmFzX3R0NjAzOTliNDg4NmRjYSJ9" title="time at Beirut" target="_blank" rel="nofollow"></a></td></tr>
+          </table>
+          <hr>
+<!--<div style="align-items:center">
+    <audio controls autoplay style="width:100%" >
+  <source src="{% static 'WhatsApp Audio 2021-02-27 at 04.25.42.mp4' %}" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio></div><hr>-->
+<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+<h2 style="text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>Welcome To Semester 9! <hr> Please Choose Your Discipline</h2></i></b>
+<hr>
+<a href="{% url 'course_list' 'telecom' %}">
+<button type="button" class="btn btn-danger"  style="color:black;background-color:white;width:100%; height:15%"><h2 style="text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>Telecom | USJ Master Reseaux</i></b></h2></button></a>
+
+
+Telecom News:
+ <div class="tcontainer">
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+
+                {% for item in news %}
+                {% if item.Discipline == 'telecom' or item.Discipline == 'common' %}
+                <div class="ticker-item">{{item}}</div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    <hr>
+<a href="{% url 'course_list' 'power' %}">
+
+<button type="button" class="btn btn-danger" style="color:black;background-color:white;width:100%; height:15%"><h2 style="text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>Power</i></b></h2></button></a>
+
+
+Power News:
+ <div class="tcontainer">
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+
+                {% for item in news %}
+
+                {% if item.Discipline == 'power' or item.Discipline == 'common' %}
+                <div class="ticker-item">{{item}}</div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block welcomenav %} {{viewer.Name}} {% endblock %}
+{% block contentblock %}
+
+<div class="jumbotron" style="background-color:#CF91FF;margin-top:10px">
+<ul class="list-group">
+<h1 style="text-align: center; color:black;font-family: 'Font Awesome\ 5 Free';"> <b><i>{{discipline}}</i></b></h1>
+
+
+{% for course in courses %}
+{% if course.Discipline == 'common' or discipline == course.Discipline %}
+<li class="list-group-item list-group-item-danger" style="background-color:white"><a href="{% url 'course_prompt' course %}"><h3 style="text-align:center"> {{course}} </h3></a></li>
+{%  endif %}
+{% endfor %}
+</ul></div>
+{% endblock %}

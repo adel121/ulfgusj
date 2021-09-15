@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block welcomenav %} {{viewer.Name}} {% endblock %}
+{% block contentblock %}
+
+<div class="jumbotron container" style="background-color:#CF91FF;align-items: center; margin-top: 30px">
+    <div style="text-align:center;align-items:left"> <h3 style="font-family: 'Font Awesome\ 5 Free'"> <i>Result:
+{% if Result == "Passed" %}
+<div style="green">
+{% elif Result == "Failed" %}
+<div style="red">
+{% else %}
+<div style="color:yellow">
+{% endif %}
+{{Result}} </i></h3>
+
+AVERAGE	{{viewer.Total}}
+<br>
+RANK	#{{viewer.Rank}}<br>
+</div>
+
+
+
+<table class="table table-sm table-light">
+  <thead>
+    <tr>
+      <th scope="col">Course</th>
+      <th scope="col">Final Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">2.7.1 Telecommunication I - 2</th>
+      <td>{{viewer.Telecom}}</td>
+    </tr>
+
+     <tr>
+      <th scope="row">2.7.2 Automatic Control II - 3</th>
+      <td>{{viewer.Auto}}</td>
+    </tr>
+
+ <tr>
+      <th scope="row">2.7.3 Microprocessors I - 3</th>
+      <td>{{viewer.Micro}}</td>
+    </tr>
+
+
+ <tr>
+      <th scope="row">2.7.4 Electrical Machines II - 3</th>
+      <td>{{viewer.Machine}}</td>
+    </tr>
+
+     <tr>
+      <th scope="row">2.7.5 Operating systems - 3</th>
+      <td>{{viewer.OS}}</td>
+    </tr>
+
+    <tr>
+      <th scope="row">2.7.6 Circuits Synthesis - 2</th>
+      <td>{{viewer.Synthesis}}</td>
+    </tr>
+
+
+    <tr>
+      <th scope="row">2.7.7 Numerical Analysis - 2</th>
+      <td>{{viewer.Data_Analysis}}</td>
+    </tr>
+
+    <tr>
+      <th scope="row">2.7.8 Instrumentations - 2</th>
+      <td>{{viewer.Instrumentation}}</td>
+    </tr>
+    <tr>
+      <th scope="row">2.7.9 Communication and Mini-Project - 1</th>
+      <td>{{viewer.Miniproject}}</td>
+    </tr>
+    <tr>
+      <th scope="row">2.7.10 Economy Engineering - 1</th>
+      <td>{{viewer.Economy}}</td>
+    </tr>
+    <tr>
+      <th scope="row">2.7.11 Laboratories IV - 1</th>
+      <td>{{viewer.Lab4}}</td>
+    </tr>
+      <tr>
+      <th scope="row">2.7.12 Laboratories V - 1</th>
+      <td>{{viewer.Lab5}}</td>
+    </tr>
+  </tbody>
+
+</table>
+
+
+
+
+
+
+</div>
+</div>
+{% endblock %}

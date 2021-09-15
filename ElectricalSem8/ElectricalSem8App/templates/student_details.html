@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block welcomenav %} {{viewer.Name}} {% endblock %}
+{% block contentblock %}
+<div class="container jumbotron" style="margin-top:25px">
+
+    <h2>
+        <div style="color:green">Thank You <b><i>{{student.Name}}!</i></b>, Submission Performed Successfully</div>
+        <hr>
+        Name: {{student.Name}}<hr>
+        Id: {{student.pk}}<hr>
+        Gmail: {{student.Gmail}}<hr>
+        Email: {{student.Email}}<hr>
+        Discipline: {{student.Discipline}}<hr>
+        <div style="color:red">To Change Your Data, Please contact the admin</div>
+    </h2>
+</div>
+
+{% endblock %}
