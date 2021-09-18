@@ -239,8 +239,29 @@ def course_list(request, discipline="telecom"):
         viewer = Viewer.objects.get(pk=pk)
     except:
         return HttpResponseRedirect(reverse('viewer_login'))
-    courses=Course.objects.all()
-    return render(request, 'course_list.html', {'viewer':viewer,'courses':courses, 'discipline':discipline})
+    all_courses=Course.objects.all()
+    courses = []
+    sub_list = []
+
+    i = 0
+    c = list(all_courses.filter(Discipline = 'common')) + list(all_courses.filter(Discipline=discipline))
+    for x in c:
+        
+        
+        if i%2==0 and i>0:
+            courses.append(sub_list)
+            sub_list=[]
+        sub_list.append(x)
+        i = i +1
+
+    s = ""
+    for x in courses:
+        s = s + str(len(x)) + '-'
+    
+    #return HttpResponse(s)
+
+    
+    return render(request, 'course_list.html', {'viewer':viewer,'courses':courses, 'comp_courses':sub_list, 'discipline':discipline})
 
 def course_prompt(request, name):
     try:
@@ -248,7 +269,8 @@ def course_prompt(request, name):
         viewer = Viewer.objects.get(pk=pk)
     except:
         return HttpResponseRedirect(reverse('viewer_login'))
-    return render(request,'course_prompt.html', {'viewer':viewer,'name':name})
+    return render(request,'course_prompt.html', {'viewer':viewer,'name':name, 'discipline':Course.objects.get(Name = name).Discipline})
+
 
 def course_videos(request, name):
     try:

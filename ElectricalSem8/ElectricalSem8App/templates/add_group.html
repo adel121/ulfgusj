@@ -6,7 +6,7 @@
 
      <form method="post" action="{% url 'add_group' %}">
          {% csrf_token %}
-    <h3 style="color:red">Mini Project Group Registration
+    <h3 style="color:white"> Telecom Codage Groups
     </h3>
   <div class="form-group">
     <label for="names">partner's name <h1><u> not YOUR name</u></h1></label>
@@ -24,9 +24,9 @@
   </div>
  <div class="form-group">
     <label for="methodselect">Choose your prefered presentation method</label>
-    <select class="form-control" name="methodselect" id="methodselect">
+    <select class="form-control" name="methodselect" id="methodselect" disabled>
       <option value="Uni">In the University</option>
-      <option value="Online">Online</option>
+      <option value="Online" selected>Online</option>
     </select>
   </div>
 <div class="form-group">

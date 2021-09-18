@@ -1,17 +1,36 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block welcomenav %} {{viewer.Name}} {% endblock %}
 {% block contentblock %}
+{% if discipline  == 'telecom' %}
+<link rel="stylesheet" type="text/css" href="{% static 'ElectricalSem8App/courselisttel.css'  %}">
+{% else  %}
+<link rel="stylesheet" type="text/css" href="{% static 'ElectricalSem8App/courselistpow.css'  %}">
+{% endif %}
+<div class="jumbotron container" style="margin: auto; width: 100%;text-align: center;background-color:transparent;align-items: center; padding: 0px;margin-top: 0px; margin-bottom: 30px;">
 
-<div class="jumbotron" style="background-color:#CF91FF;margin-top:10px">
-<ul class="list-group">
-<h1 style="text-align: center; color:black;font-family: 'Font Awesome\ 5 Free';"> <b><i>{{discipline}}</i></b></h1>
+{% if discipline  == 'telecom' %}	
+<h1 style="margin-top: 60px;text-align: center; color:black;font-family: 'Font Awesome\ 5 Free'; color:white"> <b><i>Telecom</i></b></h1>
+{% else %}
+<h1 style="margin-top: 60px;text-align: center; color:black;font-family: 'Font Awesome\ 5 Free';"> <b><i>Power</i></b></h1>
+{% endif %}
+ <div class="row">
 
-
-{% for course in courses %}
-{% if course.Discipline == 'common' or discipline == course.Discipline %}
-<li class="list-group-item list-group-item-danger" style="background-color:white"><a href="{% url 'course_prompt' course %}"><h3 style="text-align:center"> {{course}} </h3></a></li>
-{%  endif %}
+{% for sub_list in courses %}
+<div class="w-100"></div>
+	{% for course in sub_list %}
+    <div class="col"><h1><a style="text-decoration: none; color: black" href="{% url 'course_prompt' course %}">{{course}}</a></h1></div>
+	
+	{% endfor %}
+	
 {% endfor %}
-</ul></div>
+<div class="w-100"></div>
+{% for course in comp_courses %}
+    <div class="col"><h1><a style="text-decoration: none; color: black" href="{% url 'course_prompt' course %}">{{course}}</a></h1></div>
+	
+	{% endfor %}
+ </div>
 {% endblock %}
+

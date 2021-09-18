@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
 {% load customtags %}
+{% load static %}
 {% block welcomenav %} {{viewer.Name}} {% endblock %}
 {% block contentblock %}
 
-<h1 style="text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>{{name}} - Documents </h1></i></b>
-<h3>Files are displayed with the first file being the oldest one uploaded</h3>
+<link rel="stylesheet" type="text/css" href="{% static 'ElectricalSem8App/documents.css'  %}">
+<
+<h1 style="margin-top:  30px;text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>{{name}} - Documents </h1></i></b>
+<h3 style="text-align:center;">Files are displayed with the first file being the oldest one uploaded</h3>
 <div  style=" overflow-y:scroll; height:100%; align:center;">
 
-<table class="table table-sm table-dark">
-  <thead>
+<table class="table">
+  <thead class="thead-dark"> 
     <tr>
       <th scope="col">#</th>
       <th scope="col">Title</th>
@@ -21,7 +24,7 @@
 
 {% for key, value in data.items %}
 {{ value|fixDoc }}
-    <tr>
+    <tr style="background-color: rgb(100, 100, 100,0.5);">
       <th scope="row">{{key}}</th>
       <td>{{value.Name}}</td>
       <td><a href="{{value.Drive}}">Click To Download File</a></td>

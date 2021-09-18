@@ -2,9 +2,11 @@
 {% load customtags %}
 {% block welcomenav %} {{viewer.Name}} {% endblock %}
 {% block contentblock %}
+{% load static %}
 
 
-<h1 style="text-align: center;font-family: 'Font Awesome\ 5 Free';color:blue"> <b><i>{{name}} - Lectures </h1></i></b>
+<h1 style="margin-top: 50px;text-align: center;font-family: 'Font Awesome\ 5 Free';"> <b><i>{{name}} - Lectures </h1></i></b>
+<link rel="stylesheet" type="text/css" href="{% static 'ElectricalSem8App/about.css'  %}">
 <div  style="  height:100%; align:center;">
 
 {% for video in videos %}

@@ -25,7 +25,7 @@ SECRET_KEY = 'j5n)uu32j1=_&$9n-fa+7&g1l@@wrw_n3_xqjhghxoggz7(wwe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['fourthelectrical.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['fourthelectrical.pythonanywhere.com', '127.0.0.1','ulfgusj.pythonanywhere.com']
 
 
 # Application definition
